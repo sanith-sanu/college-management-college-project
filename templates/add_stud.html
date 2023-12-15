@@ -1,0 +1,54 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<style>
+    body{
+      background-image: url("https://wallpaperbat.com/img/577803-pink-abstract-4k-wallpaper.jpg");
+    }
+  </style>
+  <div class="container">
+      <div class="row"></div>
+      <div class="row">
+      <div class="col-md-4">
+       </div>
+        
+      <div class="col-md-4" style="margin-top: 7%;">
+  <form method="post" action="{% url 'adds' %}"  style="background-color:yellow; height: 460px; padding-top: 10px; border-radius: 10px;padding-left: 20px;padding-right: 20px;">
+      {% csrf_token %}
+      
+      <div class="form-outline">
+        <h3 style="text-align: center;justify-content: center; color: blue; margin-bottom: 3%; ">ADD STUDENT</h3>
+        <input type="text" name="sname"  class="form-control" placeholder="Enter Name" required /> <br>
+      </div>
+      <div class="form-outline ">
+        <input type="address" name="saddress" class="form-control" placeholder="Enter Address" required/><br>
+      </div>
+      <div class="form-outline ">
+        <input type="number" name="sage" class="form-control" placeholder="Enter Age" required /><br>
+      </div>
+      <div class="form-outline ">
+        <input type="date" name="jdate" class="form-control" placeholder="" required /><br>
+      </div>
+       <div class="form-outline ">
+       <select name="sel" class="form-control" required>
+        <option value="">Select Course</option>
+        {% for c in cour %}
+        <option value="{{c.id}}">{{c.course_name}}</option>
+        {% endfor %}
+       </select>
+      </div> <br> 
+    
+      
+      
+    
+        
+    
+      
+      <button type="submit" class="btn btn-primary btn-block " style="border-radius: 30px;" style="margin-top: 3%;">Submit</button>
+    
+     
+    </form>
+  </div>
+  </div>
+  </div>
+{% endblock %}

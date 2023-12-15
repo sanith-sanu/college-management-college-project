@@ -1,0 +1,38 @@
+{% extends 'navbar teacherhome.html' %}
+{% block content %}
+<center>
+
+    <style>
+        body{
+            background-image: url("https://wallpapercave.com/wp/wp5230816.jpg");
+            background-size: cover;
+        }
+    </style>
+   
+    <div class="card" style="width: 18rem;">
+       {% if teacher.image %}
+           <img src="{{ teacher.image.url }}" class="card-img-top" >
+       {% else %}
+           <img src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" class="card-img-top" alt="Placeholder Image">
+       {% endif %}
+        <div class="card-body">
+            <table>
+                
+                <h5 class="card-title">{{ teacher.user.username }}</h5>
+                <p class="card-text">Email-{{ teacher.user.email }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Address-{{ teacher.address }}</li>
+                <li class="list-group-item">Age-{{ teacher.age }}</li>
+                <li class="list-group-item">Mobile number-{{ teacher.number }}</li>
+                <li class="list-group-item">course-{{ teacher.course.course_name }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="teacher_home">Go Back</a>
+            </div>
+          
+            </table>
+        </div>
+    </div>
+</center>
+{% endblock %}

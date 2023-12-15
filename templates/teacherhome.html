@@ -1,0 +1,65 @@
+{% extends 'navbar teacherhome.html' %}
+{% block content %}
+<style>
+  body {
+    background-image: url("https://i.pinimg.com/originals/ba/ee/ac/baeeacb7ad04d4c791a35fae003a6780.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .center-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust this value based on your needs */
+  }
+
+  .image-container {
+    text-align: center;
+    margin: 0 200px; /* Increase the margin to add more gap between the images */
+  }
+
+  .image-container img {
+    height: 200px;
+    width: 200px;
+  }
+  a {
+        color: black; 
+        text-decoration: none; 
+    }
+</style>
+
+<div class="row">
+<div class="col-md-12" style="text-align: center;justify-content: center;">{% for message in messages %}
+    <h5>
+        <div class="alert alert-danger">
+            {{message}}
+        </div>
+    </h5>
+    {% endfor %}</div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+ 
+</div>
+
+<div class="container center-images">
+  <div class="image-container">
+    <a href="{% url 'updatetea' %}">
+      <img src="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-teachers-day-cartoon-female-teacher-teacher-png-image_370554.jpg" alt=""></a>
+      <p><h4>Edit Profile</h4></p>
+    
+  </div>
+  
+  <div class="image-container">
+    <a href="{% url 'display' %}">
+      <img src="https://as2.ftcdn.net/v2/jpg/05/33/34/71/1000_F_533347106_9tYF99rWNjlR4YBAxrFYKHL7ejwZ2i6J.jpg" alt=""></a>
+      <p><h4>View Profile</h4></p>
+    
+  </div>
+</div>
+
+{% endblock %}
+

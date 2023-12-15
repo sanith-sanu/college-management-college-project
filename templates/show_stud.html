@@ -1,0 +1,54 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+<style>
+body{
+    background-image: url("https://wallpapercave.com/wp/wp9146823.jpg");
+
+}
+
+
+        table tr:hover {
+            background-color: palevioletred; /* Light gray background color on hover */
+        }
+
+    
+</style>
+<h1 style="text-align: center;justify-content: center; color: blueviolet;">STUDENT DETAILS</h1>
+<center>
+<div class="container">
+<div class="row">
+    
+    <div class="col-md-12">
+        <table border="7px" style="color:green; border-color: blue;">
+            <thead style="text-align: center; color: red; background-color: green;">
+                <tr>
+                    <td>Student Name</td>
+                    <td>Address</td>
+                    <td>Age</td>
+                    <td>Joining Date</td>
+                    <td>Course</td>
+                    <td>Course Fee</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in stud %}
+                <tr>
+                    <td>{{s.student_name}}</td>
+                    <td>{{s.student_address}}</td>
+                    <td>{{s.student_age}}</td>
+                    <td>{{s.joining_date}}</td>
+                    <td>{{s.course.course_name}}</td>
+                    <td>{{s.course.fee}}</td>
+                    <td><a href="{% url 'update_stud' s.id %}" class="btn btn-sm btn-success">MODERNIZE</a>
+                        <a href="{% url 'delete_stud' s.id %}" class="btn btn-sm btn-danger">ERASE</a></td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</div>
+</center>
+{% endblock %}

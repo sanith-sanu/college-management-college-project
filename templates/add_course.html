@@ -1,0 +1,51 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<style>
+    body{
+      background-image: url("https://wallpapercg.com/media/ts_2x/4584.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <div class="container">
+      <div class="row"></div>
+      <div class="row">
+      <div class="col-md-4">{% for message in messages %}
+        <h5>
+            <div class="alert alert-danger">
+                {{message}}
+            </div>
+        </h5>
+        {% endfor %}</div>
+      <div class="col-md-4" style="margin-top: 10%;">
+  <form method="post" action="{% url 'addc' %}"  style="background-color: green; height: 300px; padding-top: 10px; border-radius: 10px;padding-left: 20px;padding-right: 20px;">
+      {% csrf_token %}
+      
+      <div class="form-outline">
+        <h3 style="text-align: center;justify-content: center;margin-bottom: 4%;">ADD COURSE</h3>
+        <input type="text" name="cname"  class="form-control" placeholder="Enter Course"  required/> <br>
+       
+      </div>
+    
+      
+      <div class="form-outline ">
+        <input type="number" name="cfee" class="form-control" placeholder="Enter Course Fee" required /><br>
+        
+      </div>
+      <br>
+    
+      
+      
+    
+        
+    
+      
+      <button type="submit" class="btn btn-primary btn-block " style="border-radius: 30px;">Submit</button>
+    
+     
+    </form>
+  </div>
+  </div>
+  </div>
+{% endblock %}

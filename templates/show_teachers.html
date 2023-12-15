@@ -1,0 +1,70 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+<style>
+    img {
+        height: 100px;
+        width: 100px;
+    }
+    body{
+       background-image: url("https://wallpapercave.com/wp/wp9438985.jpg");
+    }
+    table th {
+            background-color: palevioletred; /* Dark background color for header */
+            color: #fff;
+        }
+
+        table tr:hover {
+            background-color: yellow; /* Light gray background color on hover */
+        }
+</style>
+<h1 style="color: blueviolet; text-align: center;"> TEACHERS DETAILS </h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in pdt %}
+                        <tr>
+                            <td class="pt-4">{{ teacher.user.first_name }}</td>
+                            <td class="pt-4">{{ teacher.user.last_name }}</td>
+                            <td class="pt-4">{{ teacher.user.username }}</td>
+                            <td class="pt-4">{{ teacher.user.email }}</td>
+                            <td class="pt-4">{{ teacher.address }}</td>
+                            <td class="pt-4">{{ teacher.age }}</td>
+                            <td class="pt-4">{{ teacher.number }}</td>
+                            <td class="pt-4">{{ teacher.course.course_name }}</td>
+                            <td class="pt-4">
+                                {% if teacher.image %}
+                                    <img src="{{ teacher.image.url }}"  style="height: 100px; width: 100px;">
+                                {% else %}
+                                    No image available
+                                {% endif %}
+                            </td>
+                            <td>
+                                
+                                <a style="justify-content: center;" role="button" class="btn btn-danger btn-sm" href="{% url 'delete' teacher.id %}">Wipe Out</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
